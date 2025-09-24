@@ -12,14 +12,13 @@ import { fetchCurrentWeatherMain } from './openWeather';
 
 export async function fetchMeteoWeather(city, units = 'metric') {
   // Get coordinates for city (use OpenWeather geocoding for simplicity)
-  const geoRes = await fetch(`/.netlify/functions/weather?city=${encodeURIComponent(city)}`);
-  const geoData = await geoRes.json();
-  if (!geoData[0]) throw new Error('City not found');
-  const { lat, lon, name, country, state } = geoData[0];
+  const geoRes = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${encodeURIComponent(city)}&limit=1&appid=${import.meta.env.VITE_OPENWEATHER_API_KEY}`);
+  const geo = await geoRes.json();
+  if (!geo[0]) throw new Error('City not found');
+  const { lat, lon, name, country, state } = geo[0];
 
   // Fetch sunrise/sunset from OpenWeather
-  const sunInfo = await fetch(`/.netlify/functions/currentWeather?lat=${lat}&lon=${lon}`);
-  const sunData = await sunInfo.json();
+  const sunInfo = await fetchCurrentWeatherMain(lat, lon, import.meta.env.VITE_OPENWEATHER_API_KEY);
 
   // Build Open-Meteo API URL
   const tempUnit = units === 'imperial' ? 'fahrenheit' : 'celsius';
@@ -42,8 +41,8 @@ export async function fetchMeteoWeather(city, units = 'metric') {
       wind_speed: data.current_weather.windspeed,
       wind_direction: data.current_weather.winddirection,
       time: data.current_weather.time,
-      sunrise: sunData.sunrise,
-      sunset: sunData.sunset,
+      sunrise: sunInfo.sunrise,
+      sunset: sunInfo.sunset,
     },
     hourly: data.hourly.time.map((t, i) => ({
       dt: new Date(t).getTime() / 1000,
