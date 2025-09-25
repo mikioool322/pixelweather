@@ -386,7 +386,7 @@ function App() {
                 onClick={() => handleSearch()}
                 disabled={loading}
               >
-                <span role="img" aria-label="search"><img src="assets/lupkaa.png" alt="Szukaj" /></span>
+                <span role="img" aria-label="search"><img src="src/assets/lupkaa.png" alt="Szukaj" /></span>
               </button>
               <div className="flex items-center gap-2 ml-2">
                 <button
@@ -417,7 +417,7 @@ function App() {
                 onClick={() => handleSearch()}
                 disabled={loading}
               >
-                <span role="img" aria-label="search"><img src="assets/lupkaa.png" alt="Szukaj" /></span>
+                <span role="img" aria-label="search"><img src="src/assets/lupkaa.png" alt="Szukaj" /></span>
               </button>
             </div>
             <div className="flex items-center gap-2 ml-2">
