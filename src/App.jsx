@@ -21,45 +21,45 @@ const weatherGroupPl = {
 };
 // Weather type to image mapping (placeholder paths)
 const weatherTypeToImageDay = {
-  clear: '/assets/weather/sun.gif',
-  mainlyClear: '/assets/weather/sun-clouds-small.gif',
-  partlyCloudy: '/assets/weather/sun-clouds-big.gif',
-  overcast: '/assets/weather/clouds-big.gif',
-  clouds: '/assets/weather/clouds-big.gif', // fallback for legacy
-  fog: '/assets/weather/fog.gif',
-  drizzle: '/assets/weather/cloud-rain.gif',
-  freezingDrizzle: '/assets/weather/cloud-rain-snow.gif',
-  rain: '/assets/weather/cloud-rain.gif',
-  freezingRain: '/assets/weather/cloud-rain-snow.gif',
-  snow: '/assets/weather/snow.gif',
-  snowGrains: '/assets/weather/snow.gif',
-  rainShowers: '/assets/weather/cloud-rain.gif',
-  snowShowers: '/assets/weather/snow.gif',
-  thunder: '/assets/weather/thunder.gif',
-  thunderHail: '/assets/weather/thunder.gif',
-  night: '/assets/weather/night.gif',
-  other: '/assets/weather/other.gif',
+  clear: '/assets/weather/sun.webp',
+  mainlyClear: '/assets/weather/sun-clouds-small.webp',
+  partlyCloudy: '/assets/weather/sun-clouds-big.webp',
+  overcast: '/assets/weather/clouds-big.webp',
+  clouds: '/assets/weather/clouds-big.webp', // fallback for legacy
+  fog: '/assets/weather/fog.webp',
+  drizzle: '/assets/weather/cloud-rain.webp',
+  freezingDrizzle: '/assets/weather/cloud-rain-snow.webp',
+  rain: '/assets/weather/cloud-rain.webp',
+  freezingRain: '/assets/weather/cloud-rain-snow.webp',
+  snow: '/assets/weather/snow.webp',
+  snowGrains: '/assets/weather/snow.webp',
+  rainShowers: '/assets/weather/cloud-rain.webp',
+  snowShowers: '/assets/weather/snow.webp',
+  thunder: '/assets/weather/thunder.webp',
+  thunderHail: '/assets/weather/thunder.webp',
+  night: '/assets/weather/night.webp',
+  other: '/assets/weather/other.webp',
 };
 
 const weatherTypeToImageNight = {
-  clear: '/assets/weather/moon-clear.gif',
-  mainlyClear: '/assets/weather/moon-clouds-small.gif',
-  partlyCloudy: '/assets/weather/moon-clouds-big.gif',
-  overcast: '/assets/weather/clouds-big.gif',
-  clouds: '/assets/weather/clouds-big.gif', // fallback for legacy
-  fog: '/assets/weather/fog.gif',
-  drizzle: '/assets/weather/cloud-rain.gif',
-  freezingDrizzle: '/assets/weather/cloud-rain-snow.gif',
-  rain: '/assets/weather/cloud-rain.gif',
-  freezingRain: '/assets/weather/cloud-rain-snow.gif',
-  snow: '/assets/weather/snow.gif',
-  snowGrains: '/assets/weather/snow.gif',
-  rainShowers: '/assets/weather/cloud-rain.gif',
-  snowShowers: '/assets/weather/snow.gif',
-  thunder: '/assets/weather/thunder.gif',
-  thunderHail: '/assets/weather/thunder.gif',
-  night: '/assets/weather/night.gif',
-  other: '/assets/weather/night_other.gif',
+  clear: '/assets/weather/moon-clear.webp',
+  mainlyClear: '/assets/weather/moon-clouds-small.webp',
+  partlyCloudy: '/assets/weather/moon-clouds-big.webp',
+  overcast: '/assets/weather/clouds-big.webp',
+  clouds: '/assets/weather/clouds-big.webp', // fallback for legacy
+  fog: '/assets/weather/fog.webp',
+  drizzle: '/assets/weather/cloud-rain.webp',
+  freezingDrizzle: '/assets/weather/cloud-rain-snow.webp',
+  rain: '/assets/weather/cloud-rain.webp',
+  freezingRain: '/assets/weather/cloud-rain-snow.webp',
+  snow: '/assets/weather/snow.webp',
+  snowGrains: '/assets/weather/snow.webp',
+  rainShowers: '/assets/weather/cloud-rain.webp',
+  snowShowers: '/assets/weather/snow.webp',
+  thunder: '/assets/weather/thunder.webp',
+  thunderHail: '/assets/weather/thunder.webp',
+  night: '/assets/weather/night.webp',
+  other: '/assets/weather/night_other.webp',
 };
 // Utility to normalize Polish characters
 function normalizePolish(str) {
@@ -440,7 +440,7 @@ function App() {
         {error && (
           <div className="flex flex-col items-center justify-center h-[220px] w-full text-center relative">
             {!errorIconLoaded && <div className="absolute inset-0 bg-gray-200 animate-pulse rounded" />}
-            <img src="/assets/no signal.gif" alt="" className="w-40 h-40 object-contain mb-4 relative z-10" onLoad={() => setErrorIconLoaded(true)} />
+            <img src="/assets/no signal.webp" alt="" className="w-40 h-40 object-contain mb-4 relative z-10" onLoad={() => setErrorIconLoaded(true)} />
             <div className="text-xl font-bold text-gray-500 relative z-10">Brak Sygnału</div>
           </div>
         )}
