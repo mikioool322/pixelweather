@@ -408,7 +408,7 @@ function App() {
                 placeholder="Wpisz miasto..."
                 value={city}
                 onChange={e => setCity(e.target.value)}
-                className={`px-3 py-2 rounded border border-black-300 focus:outline-none focus:ring w-full md:w-64 md:h-32 ${searchBarBg}`}
+                className={`px-3 py-2 rounded border border-black-300 focus:outline-none focus:ring w-full md:w-64 ${searchBarBg}`}
                 style={{ fontFamily: 'Segoe UI, Arial, Helvetica, sans-serif' }}
               />
               <button
