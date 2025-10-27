@@ -45,8 +45,8 @@ const weatherTypeToImageNight = {
   clear: '/assets/weather/moon-clear.webp',
   mainlyClear: '/assets/weather/moon-clouds-small.webp',
   partlyCloudy: '/assets/weather/moon-clouds-big.webp',
-  overcast: '/assets/weather/clouds-big.webp',
-  clouds: '/assets/weather/clouds-big.webp', // fallback for legacy
+  overcast: '/assets/weather/moon-clouds-big.webp',
+  clouds: '/assets/weather/moon-clouds-big.webp', // fallback for legacy
   fog: '/assets/weather/fog.webp',
   drizzle: '/assets/weather/cloud-rain.webp',
   freezingDrizzle: '/assets/weather/cloud-rain-snow.webp',
