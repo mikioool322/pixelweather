@@ -196,6 +196,22 @@ function App() {
       setLoading(false);
     }
   };
+const [loadingText, setLoadingText] = useState('Ładowanie');
+React.useEffect(() => {
+  if (!loading) {
+    setLoadingText('Ładowanie');
+    return;
+  }
+  const interval = setInterval(() => {
+    setLoadingText(prev => {
+      if (prev === 'Ładowanie') return 'Ładowanie.';
+      if (prev === 'Ładowanie.') return 'Ładowanie..';
+      if (prev === 'Ładowanie..') return 'Ładowanie...';
+      return 'Ładowanie';
+    });
+  }, 500);
+  return () => clearInterval(interval);
+}, [loading]);
   // Map Open-Meteo codes to color groups
   function getWeatherGroup(code) {
     if (code === 0) return 'clear';
@@ -435,16 +451,19 @@ function App() {
       </header>
 
       {/* Today & Hourly Section */}
-  <section className={`w-full max-w-3xl mx-auto mt-4 p-2 md:p-4 rounded shadow ${sectionClass} transition-colors duration-[1500ms]`}>
+  <section className={`w-full max-w-3xl mx-auto mt-4 p-2 md:p-4 rounded shadow min-h-[220px] ${sectionClass} transition-all duration-[1500ms]`}>
         {/* removed loading message */}
-        {error && (
+        {error ? (
           <div className="flex flex-col items-center justify-center h-[220px] w-full text-center relative">
             {!errorIconLoaded && <div className="absolute inset-0 bg-gray-200 animate-pulse rounded" />}
             <img src="/assets/no signal.webp" alt="" className="w-40 h-40 object-contain mb-4 relative z-10" onLoad={() => setErrorIconLoaded(true)} />
             <div className="text-xl font-bold text-gray-500 relative z-10">Brak Sygnału</div>
           </div>
-        )}
-        {weather && !loading && !error ? (
+        ) : loading ? (
+          <FadeIn>
+            <div className="text-center min-h-[220px] py-8">{loadingText}</div>
+          </FadeIn>
+        ) : weather ? (
           <FadeIn>
             {/* Main Weather Widget */}
             <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6 mb-4 md:mb-6 relative w-full">
