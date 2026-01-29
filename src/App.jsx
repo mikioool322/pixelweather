@@ -199,15 +199,15 @@ function App() {
 const [loadingText, setLoadingText] = useState('Ładowanie');
 React.useEffect(() => {
   if (!loading) {
-    setLoadingText('Ładowanie');
+    setLoadingText('Ladowanie');
     return;
   }
   const interval = setInterval(() => {
     setLoadingText(prev => {
-      if (prev === 'Ładowanie') return 'Ładowanie.';
-      if (prev === 'Ładowanie.') return 'Ładowanie..';
-      if (prev === 'Ładowanie..') return 'Ładowanie...';
-      return 'Ładowanie';
+      if (prev === 'Ladowanie') return 'Ladowanie.';
+      if (prev === 'Ladowanie.') return 'Ladowanie..';
+      if (prev === 'Ladowanie..') return 'Ladowanie...';
+      return 'Ladowanie';
     });
   }, 500);
   return () => clearInterval(interval);
